@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import MyPage from './MyPage'
+import ReactDOM from 'react-dom';
+import { BrowserRouter,  Route,   Link,   Routes } from "react-router-dom"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+//Routing with react
+
+const App = () => {
+  return ( 
+
+    ReactDOM.render(
+
+      <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<div>Home</div>} />
+            <Route path="/MyPage" element={<div><MyPage/></div>} />
+            <Route path="/about" element={<div>About</div>} />
+            <Route path="*" element={<div>404 - not found</div>} /> //Exception for default
+            
+        </Routes>
+      </BrowserRouter>,
+          document.getElementById("root")
+    
+    
+      )
+
+   );
 }
+ 
 
-export default App;
+  export default App;
